@@ -1,4 +1,6 @@
 import requests
+import os
+
 
 from modules.ai_indexer import AIIndexer
 from modules.prompt_builder import PromptBuilder
@@ -12,7 +14,7 @@ class ChatEngine:
 
         self.prompt_builder = PromptBuilder()
 
-        self.url = "http://localhost:11434/api/generate"
+        self.url = os.getenv("OLLAMA_URL")
 
     def ask(self, report_id, question):
 

@@ -8,6 +8,9 @@ from modules.pdf_reader import PDFReader
 from modules.ocr import OCRReader
 from modules.parser import MedicalParser
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from database.store_report_data import (
     store_report_data
 )
@@ -178,7 +181,7 @@ def report(report_id):
 if __name__ == "__main__":
 
     app.run(
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=8000,
         debug=True
     )
