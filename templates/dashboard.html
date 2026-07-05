@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>MedIntel AI Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    🩺 MedIntel AI Dashboard
+
+</div>
+
+<div class="dashboard">
+
+    <!-- Report Info -->
+
+    <div class="card">
+
+        <h2>📄 Report Information</h2>
+
+        <div class="info-grid">
+
+            <div class="info-box">
+                <h3>File Name</h3>
+                <p>{{ document.filename }}</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Total Pages</h3>
+                <p>{{ document.total_pages }}</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Scanned PDF</h3>
+                <p>
+                    {% if document.is_scanned %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Health Cards -->
+
+    <div class="card">
+
+        <h2>🧪 Health Parameters</h2>
+
+        <div class="info-grid">
+
+        {% for parameter, data in parsed_data.items() %}
+
+            <div class="info-box">
+
+                <h3>{{ parameter }}</h3>
+
+                <p>
+
+                    <strong>{{ data.value }}</strong>
+
+                    {% if data.unit %}
+                        {{ data.unit }}
+                    {% endif %}
+
+                </p>
+
+                {% if data.status == "Normal" %}
+
+                    <p style="color:green;font-weight:bold;">
+                        🟢 {{ data.status }}
+                    </p>
+
+                {% elif data.status == "Low" %}
+
+                    <p style="color:red;font-weight:bold;">
+                        🔴 {{ data.status }}
+                    </p>
+
+                {% elif data.status == "High" %}
+
+                    <p style="color:orange;font-weight:bold;">
+                        🟠 {{ data.status }}
+                    </p>
+
+                {% else %}
+
+                    <p>{{ data.status }}</p>
+
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- AI Chat -->
+
+    <div class="card">
+
+        <h2>🤖 Ask MedIntel AI</h2>
+
+        <input
+            id="question"
+            class="chat-input"
+            placeholder="Example: Is my hemoglobin normal?">
+
+        <button
+            class="ask-btn"
+            onclick="askAI()">
+
+            Ask AI
+
+        </button>
+
+        <div id="answer">
+
+            AI response will appear here...
+
+        </div>
+
+    </div>
+
+    <!-- Raw Report -->
+
+    <div class="card">
+
+        <details>
+
+            <summary>
+                <strong>📄 View Extracted Report</strong>
+            </summary>
+
+            <br>
+
+            <pre>{{ document.text }}</pre>
+
+        </details>
+
+    </div>
+
+</div>
+
+<script>
+
+const REPORT_ID = {{ report_id }};
+
+</script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>

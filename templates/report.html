@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Medical Report</title>
+
+</head>
+
+<body>
+
+<h1>
+
+Report {{ report_id }}
+
+</h1>
+
+<hr>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Parameter</th>
+
+<th>Value</th>
+
+<th>Unit</th>
+
+<th>Status</th>
+
+</tr>
+
+{% for item in results %}
+
+<tr>
+
+<td>{{ item.parameter }}</td>
+
+<td>{{ item.value }}</td>
+
+<td>{{ item.unit }}</td>
+
+<td>{{ item.status }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

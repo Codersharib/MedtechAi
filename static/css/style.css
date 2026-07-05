@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background: #f4f7fb;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #0066ff;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background: #004ecc;
+}
+
+/* ================= DASHBOARD ================= */
+
+.navbar{
+    background:#2563eb;
+    color:white;
+    padding:18px 40px;
+    font-size:28px;
+    font-weight:bold;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.dashboard{
+    width:90%;
+    margin:30px auto;
+}
+
+.info-card,
+.chat-card,
+.report-card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.chat-card input{
+    width:75%;
+    padding:12px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.chat-card button{
+    margin-left:10px;
+}
+
+#answer{
+    margin-top:20px;
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:10px;
+    min-height:80px;
+}
+
+.report-card pre{
+    max-height:350px;
+    overflow:auto;
+    background:#f2f2f2;
+    padding:15px;
+    border-radius:10px;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MedIntel AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>MedIntel AI</h1>
+        <p> Upload your medical report and let AI analyze it. </p>
+        <form action="/upload" method="POST" enctype="multipart/form-data"> <input type="file" name="report"
+                accept=".pdf" required> <br><br> <button type="submit"> Upload Report </button> </form>
+    </div>
+</body>
+
+</html>

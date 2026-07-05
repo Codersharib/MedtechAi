@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Report History</title>
+
+</head>
+
+<body>
+
+<h1>Uploaded Reports</h1>
+
+<hr>
+
+{% for report in reports %}
+
+<p>
+
+<a href="/report/{{ report.report_id }}">
+
+{{ report.filename }}
+
+</a>
+
+</p>
+
+{% endfor %}
+
+</body>
+
+</html>

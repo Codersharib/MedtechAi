@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>MedIntel AI Chat</title>
+
+</head>
+
+<body>
+
+<h2>
+
+Ask Your Medical Report
+
+</h2>
+
+<input
+type="text"
+id="question"
+placeholder="Ask anything..."
+style="width:400px;"
+>
+
+<button onclick="askAI()">
+
+Ask
+
+</button>
+
+<br><br>
+
+<div id="answer">
+
+</div>
+
+<script>
+
+async function askAI(){
+
+let question=document.getElementById(
+"question"
+).value;
+
+let form=new FormData();
+
+form.append(
+"report_id",
+"1"
+);
+
+form.append(
+"question",
+question
+);
+
+let response=await fetch(
+
+"/ask",
+
+{
+
+method:"POST",
+
+body:form
+
+}
+
+);
+
+let data=await response.json();
+
+document.getElementById(
+
+"answer"
+
+).innerHTML=data.answer;
+
+}
+
+</script>
+
+</body>
+
+</html>
